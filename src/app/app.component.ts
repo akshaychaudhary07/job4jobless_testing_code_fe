@@ -1,59 +1,85 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { RouterModule } from '@angular/router';  // Import RouterModule
+import { filter } from 'rxjs/operators';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentboxComponent } from './contentbox/contentbox.component';
-import { SearchboxComponent } from './searchbox/searchbox.component';
-import { FeatureComponent } from './feature/feature.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { RouterModule } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { Router, NavigationEnd } from '@angular/router';
-import { VisibilityService } from './visibility.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
-    RouterModule,
-    HeaderComponent,
+    CommonModule,
+    RouterModule,  // Add RouterModule here
+    HeaderComponent,  // Include HeaderComponent
     FooterComponent,
     ContentboxComponent,
-    SearchboxComponent,
-    FeatureComponent,
-    AboutUsComponent
+    AboutUsComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] 
+  styleUrls: ['./app.component.css']
 })
-
 export class AppComponent implements OnInit {
-  title = 'jobproject';
-  showExtraComponents: boolean = true;
+  isSpecialRoute = false;
 
-  constructor(private router: Router, private renderer: Renderer2) {}
+  // Explicitly define the type for navItems
+  navItems: { label: string; link: string; isDropdown?: boolean; dropdownItems?: { label: string, link: string }[] }[] = [];  
+
+  defaultNavItems = [
+    { label: 'Find Jobs', link: '/find-jobs' },
+    { label: 'Services', link: '/services' },
+    { label: 'Blogs', link: '/blogs' },
+    { label: 'Employer', link: '/employer' },
+  ];
+
+  employerNavItems = [
+    { label: 'Hiring-solution', link: '/hiring-solution' },
+    { label: 'Dashboard', link: '/dashboard' },
+  ];
+
+  // Adjusted the sequence: Post Job -> Job Posted dropdown -> Applied Users
+  dashboardNavItems = [
+    { label: 'Post Job', link: '/post-job' },
+    { 
+      label: 'Job Posted', 
+      link: '/job-posted', 
+      isDropdown: true, 
+      dropdownItems: [
+        { label: 'Manage Jobs', link: '/manage-jobs' },
+        { label: 'View Applications', link: '/view-applications' },
+      ]
+    },
+    { label: 'Applied Users', link: '/applied-users' },
+  ];
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    // Subscribe to router events
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        // Check if we are on the about-us page
-        this.showExtraComponents = !event.urlAfterRedirects.includes('/about-us');
-      }
+    // Set initial navItems based on the current URL
+    this.updateNavItemsBasedOnRoute(this.router.url);
+
+    // Update navItems whenever navigation occurs
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.updateNavItemsBasedOnRoute(event.urlAfterRedirects);
     });
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        // Add or remove class based on route
-        if (event.url === '/login-page') {
-          this.renderer.addClass(document.body, 'login-page');
-        } else {
-          this.renderer.removeClass(document.body, 'login-page');
-        }
-      });
   }
+
+  private updateNavItemsBasedOnRoute(url: string) {
+    if (url.includes('/dashboard')) {
+      this.isSpecialRoute = true;
+      this.navItems = this.dashboardNavItems;  // Use dashboard nav items (with dropdown for 'Job Posted')
+    } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
+      this.isSpecialRoute = true;
+      this.navItems = this.employerNavItems;  // Use employer nav items without dropdown
+    } else {
+      this.isSpecialRoute = false;
+      this.navItems = this.defaultNavItems;  // Use default nav items
+    }
+    console.log('Current navItems:', this.navItems);
   }
-  
-
-
+}

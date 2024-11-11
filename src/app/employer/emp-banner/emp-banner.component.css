@@ -23,3 +23,8 @@
     top: 30% !important;
   }
 }
+@media  (min-width: 820px) {
+  .top-50 {
+    top: 35% !important;
+  }
+}

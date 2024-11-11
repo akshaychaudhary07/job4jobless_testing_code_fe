@@ -1,13 +1,9 @@
-/* General Styles */
+
 .custom-start-28 {
   left: 28% !important;
 }
 .custom-top-6 {
   top: 6% !important;
-}
-h1, h3 {
-  line-height: 1.5;
-  margin: 0;
 }
 @media (max-width: 768px) {
   .banner-img h1 {

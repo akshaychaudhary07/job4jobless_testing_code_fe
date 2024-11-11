@@ -1,7 +1,10 @@
 <section class="contact-form">
   <div class="container">
     <div class="row flex-box d-flex flex-md-row custom-flex-sm">
-      <div class="col-md-6 map-container m-0 p-0 overflow-hidden">
+      <div
+        class="col-md-6 map-container m-0 p-0 overflow-hidden"
+        style="height: 790px"
+      >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509999!2d144.95373631590712!3d-37.816279979751624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0b21d3%3A0x5045675218ceed30!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1632766797111!5m2!1sen!2sus"
           width="100%"
@@ -13,7 +16,15 @@
       </div>
 
       <div class="col-md-6 custom-pad">
-        <div class="container form-box text-center" style="background: #ebf3fe">
+        <div
+          class="container form-box text-center"
+          style="
+            background: #ebf3fe;
+            padding: 3rem;
+            padding-top: 4rem;
+            margin-left: -1rem;
+          "
+        >
           <h1 style="color: #1e2d5b">Get In Touch</h1>
           <p class="p-0 m-0">Got a question or feedback?</p>
           <p class="pb-2">Fill out the form and we’ll get back to you!</p>
@@ -21,7 +32,8 @@
             <div class="mb-3">
               <input
                 type="text"
-                class="form-control"
+                class="form-control bg-white"
+                style="border-radius: 11px; padding: 2.3rem"
                 id="name"
                 placeholder="Name"
                 required
@@ -30,7 +42,8 @@
             <div class="mb-3">
               <input
                 type="email"
-                class="form-control"
+                class="form-control bg-white"
+                style="border-radius: 11px; padding: 2.3rem"
                 id="email"
                 placeholder="Email Address"
                 required
@@ -39,7 +52,8 @@
             <div class="mb-3">
               <input
                 type="tel"
-                class="form-control"
+                class="form-control bg-white"
+                style="border-radius: 11px; padding: 2.3rem"
                 id="contact"
                 placeholder="Contact Number"
                 required
@@ -48,6 +62,11 @@
             <div class="mb-3">
               <textarea
                 class="form-control"
+                style="
+                  border-radius: 11px;
+                  padding: 1.5rem;
+                  padding-bottom: 6rem;
+                "
                 id="message"
                 rows="3"
                 placeholder="Message"
@@ -56,8 +75,13 @@
             </div>
             <button
               type="submit"
-              class="btn fw-bold text-center"
-              style="background: #1e2d5b; color: white"
+              class="btn fw-bold text-center text-white"
+              style="
+                background: #1e2d5b;
+                font-size: 25px;
+                border-radius: 11px;
+                padding: 12px 5rem;
+              "
             >
               SEND
             </button>
@@ -68,11 +92,8 @@
   </div>
 </section>
 
-<div class="border00"></div>
+<div class="border00" style="border-bottom: 1px solid #e2dada"></div>
 <!-- <app-header [isEmployer]="true"></app-header> -->
 <!-- <app-contact-form></app-contact-form> -->
 
-
-
 <!-- ---cards----- -->
- 

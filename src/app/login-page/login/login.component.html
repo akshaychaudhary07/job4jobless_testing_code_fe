@@ -3,8 +3,13 @@
   style="background: #101a3a"
 >
   <div
-    class="container box bg-white mt-2 border border-2"
-    style="border-radius: 35px; max-width: 460px; padding: 20px"
+    class="container box bg-white mt-2 border border-2 d-block m-auto"
+    style="
+      border-radius: 35px;
+      max-width: 460px;
+      padding: 20px;
+      margin: auto !important;
+    "
   >
     <div class="d-flex justify-content-center">
       <a routerlink="/" class="navbar-logo" href="/">
@@ -39,7 +44,7 @@
         <button
           type="button"
           (click)="togglePasswordVisibility()"
-          class="btn pass-btn position-absolute z-1 border-0"
+          class="btn pass-btn position-absolute z-1 border-0 bg-transparent "
         >
           <i
             [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
