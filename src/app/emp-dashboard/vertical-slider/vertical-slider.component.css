@@ -1,7 +1,71 @@
-/* Circle styles */
-.circle {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background-color: #1e2d5b; /* Customize circle color */
-  }
+
+.progress {
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-between;
+  align-items: center;     
+  position: absolute;      
+  left: 25%;               
+  top: 55%;                
+  background-color: transparent;
+  transform: translateY(-50%); 
+  height: 300px;          
+}
+
+
+.step {
+  width: 25px;             
+  height: 25px;           
+  border-radius: 50%;   
+  background-color: #d3d3d3;  
+  position: relative;
+  z-index: 10;            
+  margin-bottom: 20px; 
+  transition: background-color 0.3s;
+  cursor: pointer;   
+}
+
+
+.step.complete {
+  background-color: green;
+}
+
+
+.step:after {
+  content: '';
+  width: 5px;
+  height: 200px;          
+  position: absolute;
+  top: 50%;                
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d3d3d3;
+  z-index: 5;  
+}
+
+
+.step.complete:after {
+  background-color: green;
+}
+
+
+.step:last-child:after {
+  display: none;  
+}
+
+.disabled-heading {
+  color: #888!important; 
+  opacity: 0.5;
+  pointer-events: none; 
+}
+.step.complete:after {
+  background-color: green;
+}
+@media (max-width:768px){
+  .progress {
+    flex-direction: row!important;
+    position: static!important;
+    padding: 2rem;
+    padding-top: 8rem;
+}
+}
