@@ -1,14 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, ComponentFactoryResolver, ComponentRef, HostListener, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { CreateJobPostComponent } from '../create-job-post/create-job-post.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CreateJobPostComponent } from '../create-job-post/create-job-post.component';
+import { ReviewJobPostComponent } from '../review-job-post/review-job-post.component';
+import { JobDetailsComponent } from '../job-details/job-details.component';
+import { PostJobComponent } from '../post-job/post-job.component';
+
+
 
 @Component({
   selector: 'app-vertical-slider',
   standalone: true,
-  imports: [CommonModule,CreateJobPostComponent,FormsModule,RouterLink],
+  imports: [CommonModule,FormsModule,RouterLink,CreateJobPostComponent,ReviewJobPostComponent,JobDetailsComponent,PostJobComponent],
   templateUrl: './vertical-slider.component.html',
   styleUrl: './vertical-slider.component.css'
 })

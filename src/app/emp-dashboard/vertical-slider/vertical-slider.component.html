@@ -9,7 +9,6 @@
       overflow: visible;
     "
   >
-
     <div>
       <div style="display: flex; align-items: center">
         <div
@@ -24,16 +23,14 @@
             'active-heading': activeStep === 1,
             'disabled-heading': activeStep !== 1
           }"
-        
         >
-          Step 1 Heading
+          Create A Job Post
         </h2>
       </div>
       <div *ngIf="activeStep === 1" style="margin-top: 10px">
         <app-create-job-post></app-create-job-post>
       </div>
     </div>
-
 
     <div>
       <div style="display: flex; align-items: center">
@@ -49,16 +46,14 @@
             'active-heading': activeStep === 2,
             'disabled-heading': activeStep !== 2
           }"
-       
         >
-          Step 2 Heading
+          Job Details
         </h2>
       </div>
       <div *ngIf="activeStep === 2" style="margin-top: 10px">
-        <app-step2></app-step2>
+        <app-job-details></app-job-details>
       </div>
     </div>
-
 
     <div>
       <div style="display: flex; align-items: center">
@@ -68,28 +63,21 @@
           (click)="activateStep(3)"
         ></div>
         <h2
-          class="fw-bolder pb-3 fs-2 fs-sm-4 fs-md-5 fs-lg-6 "
+          class="fw-bolder pb-3 fs-2 fs-sm-4 fs-md-5 fs-lg-6"
           style="color: #1e2d5b"
           [ngClass]="{
             'active-heading': activeStep === 3,
             'disabled-heading': activeStep !== 3
           }"
-        
         >
-          Step 3 Heading
+          Review your Job Post
         </h2>
       </div>
       <div *ngIf="activeStep === 3" style="margin-top: 10px">
-        <app-step3></app-step3>
+        <app-review-job-post></app-review-job-post>
       </div>
     </div>
   </div>
 </section>
-
-
-    
-
-
-
 
 <!-- <app-create-job-post></app-create-job-post> -->

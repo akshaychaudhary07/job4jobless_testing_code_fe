@@ -11,8 +11,6 @@
   transform: translateY(-50%); 
   height: 300px;          
 }
-
-
 .step {
   width: 25px;             
   height: 25px;           
@@ -24,13 +22,9 @@
   transition: background-color 0.3s;
   cursor: pointer;   
 }
-
-
 .step.complete {
   background-color: green;
 }
-
-
 .step:after {
   content: '';
   width: 5px;
@@ -42,17 +36,12 @@
   background-color: #d3d3d3;
   z-index: 5;  
 }
-
-
 .step.complete:after {
   background-color: green;
 }
-
-
 .step:last-child:after {
   display: none;  
 }
-
 .disabled-heading {
   color: #888!important; 
   opacity: 0.5;

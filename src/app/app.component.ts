@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { RouterModule } from '@angular/router';  // Import RouterModule
+import { RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,8 +13,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,  // Add RouterModule here
-    HeaderComponent,  // Include HeaderComponent
+    RouterModule,
+    HeaderComponent,
     FooterComponent,
     ContentboxComponent,
     AboutUsComponent,
@@ -25,7 +25,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 export class AppComponent implements OnInit {
   isSpecialRoute = false;
 
-  // Explicitly define the type for navItems
   navItems: { label: string; link: string; isDropdown?: boolean; dropdownItems?: { label: string, link: string }[] }[] = [];  
 
   defaultNavItems = [
@@ -40,7 +39,6 @@ export class AppComponent implements OnInit {
     { label: 'Dashboard', link: '/dashboard' },
   ];
 
-  // Adjusted the sequence: Post Job -> Job Posted dropdown -> Applied Users
   dashboardNavItems = [
     { label: 'Post Job', link: '/post-job' },
     { 
@@ -70,15 +68,16 @@ export class AppComponent implements OnInit {
   }
 
   private updateNavItemsBasedOnRoute(url: string) {
-    if (url.includes('/dashboard')) {
+    if (url.includes('/dashboard') || url.includes('/post-job')) {
+      // Display dashboard header for both /dashboard and /post-job routes
       this.isSpecialRoute = true;
-      this.navItems = this.dashboardNavItems;  // Use dashboard nav items (with dropdown for 'Job Posted')
+      this.navItems = this.dashboardNavItems;
     } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
-      this.navItems = this.employerNavItems;  // Use employer nav items without dropdown
+      this.navItems = this.employerNavItems;
     } else {
       this.isSpecialRoute = false;
-      this.navItems = this.defaultNavItems;  // Use default nav items
+      this.navItems = this.defaultNavItems;
     }
     console.log('Current navItems:', this.navItems);
   }
