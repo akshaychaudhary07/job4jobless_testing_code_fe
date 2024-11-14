@@ -14,7 +14,8 @@ export class EmployerComponent {
   employerNavItems = [
     { label: 'Hiring-solution', link: '/hiring-solution' },
     { label: 'Dashboard', link: '/dashboard' },
-    
+  
     // { label: 'Manage Jobs', link: '/employer/manage-jobs' }
   ];
 }
+// i want to change

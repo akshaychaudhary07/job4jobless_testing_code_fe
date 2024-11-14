@@ -6,6 +6,10 @@
   .cus-w {
    width: 100% !important;
   }
+  .custom-padding{
+    padding-left: 1rem!important;
+    padding-right: 0rem!important;
+  }
   .card, .card-small {
     aspect-ratio: 0!important; 
     height: auto;
@@ -13,7 +17,7 @@
 }
 @media screen and (max-width: 1600px) {
   .cus-m{
-    margin-top: -5rem!important;
+    margin-top: -4rem!important;
    }
    .cus-w {
     width: 100% !important;
@@ -21,6 +25,7 @@
 }
 @media (max-width: 768px) {
   .cus-m{
-   margin-top: -1rem!important;
+   margin-top: -2rem!important;
   }
  }
+ 

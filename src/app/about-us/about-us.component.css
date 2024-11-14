@@ -1,16 +1,3 @@
-
-/* @media (max-width: 768px) {
-  .banner-img h1 {
-    font-size: 1rem;
-  }
-}
-@media (max-width: 576px) {
-img.img-fluid.w-100 {
-    min-height: 15vh;
-    object-fit: cover;
-}
-} */
-
 @media (max-width: 576px) {
   img.img-fluid.w-100 {
       min-height: 15vh;

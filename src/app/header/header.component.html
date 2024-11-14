@@ -28,28 +28,42 @@
         style="transition: max-height 0.35s ease"
         [ngClass]="{ show: !isCollapsed }"
       >
-      <!-- navItems -->
-      <ul class="nav">
-        <li *ngFor="let item of navItems" class="nav-item" [ngClass]="{'dropdown': item.isDropdown}">
-          
-          <!-- Regular link items -->
-          <a *ngIf="!item.isDropdown" class="nav-link" [routerLink]="item.link">{{ item.label }}</a>
-    
-          <!-- Dropdown for 'Job Posted' -->
-          <div *ngIf="item.isDropdown" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              {{ item.label }}
-            </a>
-            <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li *ngFor="let dropdownItem of item.dropdownItems">
-                <a class="dropdown-item" [routerLink]="dropdownItem.link">{{ dropdownItem.label }}</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      
-      
+        <!-- navItems -->
+        <ul class="nav">
+          <li
+            *ngFor="let item of navItems"
+            class="nav-item"
+            [ngClass]="{ dropdown: item.isDropdown }"
+          >
+            <!-- Regular link items -->
+            <a
+              *ngIf="!item.isDropdown"
+              class="nav-link"
+              [routerLink]="item.link"
+              >{{ item.label }}</a
+            >
+
+            <!-- Dropdown for 'Job Posted' -->
+            <div *ngIf="item.isDropdown" class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{ item.label }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li *ngFor="let dropdownItem of item.dropdownItems">
+                  <a class="dropdown-item" [routerLink]="dropdownItem.link">{{
+                    dropdownItem.label
+                  }}</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
 
         <button
           type="button"
@@ -62,12 +76,13 @@
             padding: 12px;
           "
         >
-          Start Job Hunting
+          {{ buttonText }}
           <span class="mx-2"><i class="fa-solid fa-chevron-right"></i></span>
         </button>
       </div>
     </nav>
   </div>
 </div>
+<!-- This is header.html code i want this is fully dynamic so that i am changing the name of the button in any other component easily by using angular sandolome   -->
+
 <!-- /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */ -->
- <!-- 8  -->

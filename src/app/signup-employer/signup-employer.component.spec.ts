@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmpBodyFirstComponent } from './emp-body-first.component';
+import { SignupEmployerComponent } from './signup-employer.component';
 
-describe('EmpBodyFirstComponent', () => {
-  let component: EmpBodyFirstComponent;
-  let fixture: ComponentFixture<EmpBodyFirstComponent>;
+describe('SignupEmployerComponent', () => {
+  let component: SignupEmployerComponent;
+  let fixture: ComponentFixture<SignupEmployerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EmpBodyFirstComponent]
+      imports: [SignupEmployerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EmpBodyFirstComponent);
+    fixture = TestBed.createComponent(SignupEmployerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,4 +21,3 @@ describe('EmpBodyFirstComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

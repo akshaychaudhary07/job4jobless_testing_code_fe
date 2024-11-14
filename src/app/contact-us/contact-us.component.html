@@ -28,64 +28,87 @@
           <h1 style="color: #1e2d5b">Get In Touch</h1>
           <p class="p-0 m-0">Got a question or feedback?</p>
           <p class="pb-2">Fill out the form and we’ll get back to you!</p>
-          <form>
+          <form #myForm="ngForm">
             <div class="mb-3">
               <input
                 type="text"
                 class="form-control bg-white"
                 style="border-radius: 11px; padding: 2.3rem"
                 id="name"
+                name="name"
+                ngModel
                 placeholder="Name"
                 required
+                #name="ngModel"
               />
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                Name is required.
+              </div>
             </div>
+          
             <div class="mb-3">
               <input
                 type="email"
                 class="form-control bg-white"
                 style="border-radius: 11px; padding: 2.3rem"
                 id="email"
+                name="email"
+                ngModel
                 placeholder="Email Address"
                 required
+                email
+                #email="ngModel"
               />
+              <div *ngIf="email.invalid && email.touched" class="text-danger">
+                A valid email is required.
+              </div>
             </div>
+          
             <div class="mb-3">
               <input
                 type="tel"
                 class="form-control bg-white"
                 style="border-radius: 11px; padding: 2.3rem"
                 id="contact"
+                name="contact"
+                ngModel
                 placeholder="Contact Number"
                 required
+                pattern="^[0-9]{10}$"  
+                #contact="ngModel"
               />
+              <div *ngIf="contact.invalid && contact.touched" class="text-danger">
+                A valid 10-digit contact number is required.
+              </div>
             </div>
+          
             <div class="mb-3">
               <textarea
                 class="form-control"
-                style="
-                  border-radius: 11px;
-                  padding: 1.5rem;
-                  padding-bottom: 6rem;
-                "
+                style="border-radius: 11px; padding: 1.5rem; padding-bottom: 6rem;"
                 id="message"
+                name="message"
+                ngModel
                 rows="3"
                 placeholder="Message"
                 required
+                #message="ngModel"
               ></textarea>
+              <div *ngIf="message.invalid && message.touched" class="text-danger">
+                Message is required.
+              </div>
             </div>
+          
             <button
               type="submit"
               class="btn fw-bold text-center text-white"
-              style="
-                background: #1e2d5b;
-                font-size: 25px;
-                border-radius: 11px;
-                padding: 12px 5rem;
-              "
+              style="background: #1e2d5b; font-size: 25px; border-radius: 11px; padding: 12px 5rem;"
+              [disabled]="myForm.invalid"
             >
               SEND
             </button>
           </form>
+          
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@
     </div>
 
     <h3 class="text-center mt-3 mb-3">Login As Job Seeker</h3>
-    <form>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
         <input
@@ -30,7 +30,17 @@
           id="form1Example13"
           placeholder="Username or Email"
           class="form-control form-control-lg"
+          ngModel
+          required
+          email
         />
+        <!-- Validation message -->
+        <div
+          *ngIf="loginForm.submitted && !loginForm.controls['email']?.valid"
+          class="text-danger"
+        >
+          Please enter a valid email address.
+        </div>
       </div>
 
       <!-- Password input -->
@@ -44,7 +54,7 @@
         <button
           type="button"
           (click)="togglePasswordVisibility()"
-          class="btn pass-btn position-absolute z-1 border-0 bg-transparent "
+          class="btn pass-btn position-absolute z-1 border-0 bg-transparent"
         >
           <i
             [class]="isPasswordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"
@@ -101,3 +111,5 @@
     </form>
   </div>
 </section>
+
+no this wrong i only want validataion on my email using angular
