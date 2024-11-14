@@ -24,6 +24,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 })
 export class AppComponent implements OnInit {
   isSpecialRoute = false;
+  hideHeader = false; // Controls header visibility
+  hideFooter = false; // Controls footer visibility
 
   navItems: { label: string; link: string; isDropdown?: boolean; dropdownItems?: { label: string, link: string }[] }[] = [];  
 
@@ -46,8 +48,8 @@ export class AppComponent implements OnInit {
       link: '/job-posted', 
       isDropdown: true, 
       dropdownItems: [
-        { label: 'Manage Jobs', link: '/manage-jobs' },
-        { label: 'View Applications', link: '/view-applications' },
+        { label: 'Approved Jobs', link: '/approved-jobs' },
+        { label: 'Rejected Jobs', link: '/rejected-jobs' },
       ]
     },
     { label: 'Applied Users', link: '/applied-users' },
@@ -56,10 +58,10 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Set initial navItems based on the current URL
+    // Set initial navItems and visibility based on the current URL
     this.updateNavItemsBasedOnRoute(this.router.url);
 
-    // Update navItems whenever navigation occurs
+    // Update navItems and header/footer visibility whenever navigation occurs
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
@@ -68,15 +70,23 @@ export class AppComponent implements OnInit {
   }
 
   private updateNavItemsBasedOnRoute(url: string) {
-    if (url.includes('/dashboard') || url.includes('/post-job')) {
-      // Display dashboard header for both /dashboard and /post-job routes
+    if (url.includes('/login')) {
+      this.hideHeader = true; // Hide header on login page
+      this.hideFooter = true; // Hide footer on login page
+    } else if (url.includes('/dashboard') || url.includes('/post-job') || url.includes('/approved-jobs') || url.includes('/rejected-jobs')) {
       this.isSpecialRoute = true;
+      this.hideHeader = false;
+      this.hideFooter = false;
       this.navItems = this.dashboardNavItems;
     } else if (url.includes('/employer') || url.includes('/hiring-solution')) {
       this.isSpecialRoute = true;
-      this.navItems = this.employerNavItems;
+      this.hideHeader = false;
+      this.hideFooter = false;
+      this.navItems = this.employerNavItems; 
     } else {
       this.isSpecialRoute = false;
+      this.hideHeader = false;
+      this.hideFooter = false;
       this.navItems = this.defaultNavItems;
     }
     console.log('Current navItems:', this.navItems);

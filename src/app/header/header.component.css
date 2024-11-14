@@ -11,6 +11,10 @@
     .navbar-nav .nav-link {
         padding-left: 15px;
     }
+    ul.nav {
+      display: flex;
+      flex-direction: column;
+  }
     .head-btn {
         margin-left: 12px;
     }
@@ -25,6 +29,10 @@
     .navbar-nav .nav-link {
       padding-left: 15px;
   }
+  ul.nav {
+    display: flex;
+    flex-direction: column;
+}
   .head-btn {
       margin-left: 12px;
   }

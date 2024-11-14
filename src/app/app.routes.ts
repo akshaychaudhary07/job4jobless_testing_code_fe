@@ -6,6 +6,9 @@ import { EmployerComponent } from './employer/employer.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HiringSolutionComponent } from './hiring-solution/hiring-solution.component';
 import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
+import { JobPostedComponent } from './emp-dashboard/job-posted/job-posted.component';
+import { ApprovedJobsComponent } from './emp-dashboard/job-posted/approved-jobs/approved-jobs.component';
+import { RejectedJobsComponent } from './emp-dashboard/job-posted/rejected-jobs/rejected-jobs.component';
 
 
 
@@ -18,6 +21,9 @@ export const routes: Routes = [
   { path: 'hiring-solution', component: HiringSolutionComponent },// Login page
   { path: 'dashboard', component: EmpDashboardComponent },
   { path: 'post-job', component: EmpDashboardComponent },
+  { path: 'job-posted', component: JobPostedComponent },
+  { path: 'approved-jobs', component: ApprovedJobsComponent },
+  { path: 'rejected-jobs', component: RejectedJobsComponent },
 
   // { path: 'create-job-post', component: CreateJobPostComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' } // Wildcard for 404 redirects
