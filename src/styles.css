@@ -3,7 +3,7 @@
     padding: 0 rem;
     box-sizing: border-box;
     margin: auto;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat';
     color: #2F3847;
 }
 body.login-page app-header,
