@@ -20,8 +20,9 @@ import { PostJobComponent } from '../post-job/post-job.component';
 export class VerticalSliderComponent{
   activeStep: number = 1; // First step is active by default
 
-  activateStep(step: number) {
-    this.activeStep = step; // Set the active step to the clicked step
+  // Method to set the active step when a dot is clicked
+  activateStep(step: number): void {
+    this.activeStep = step;
   }
   isMobileView = false;
   constructor() {

@@ -54,7 +54,9 @@ export class AppComponent implements OnInit {
     },
     { label: 'Applied Users', link: '/applied-users' },
   ];
-
+  buttonText: string = 'Start Job Hunting'; // Default button text
+  buttonLink: string = '/login-page'; // Default URL
+  
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -66,6 +68,12 @@ export class AppComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       this.updateNavItemsBasedOnRoute(event.urlAfterRedirects);
+    });
+    // Listen to route changes to update button text and link
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateButtonProperties(event.url);
+      }
     });
   }
 
@@ -90,5 +98,22 @@ export class AppComponent implements OnInit {
       this.navItems = this.defaultNavItems;
     }
     console.log('Current navItems:', this.navItems);
+  } 
+// Update button text and link based on the current route
+private updateButtonProperties(url: string): void {
+  if (url.includes('/employer')) {
+    this.buttonText = 'Start Hiring';
+    this.buttonLink = '/signup-page';
+  } else if (url.includes('/dashboard')) {
+    this.buttonText = 'Start Hiring';
+    this.buttonLink = '/signup-page';
+  } else if (url.includes('/hiring-solution')) {
+    this.buttonText = 'Start Hiring';
+    this.buttonLink = '/signup-page';
+  } else {
+    this.buttonText = 'Start Job Hunting'; // Default text
+    this.buttonLink = '/login-page'; // Default link
   }
+}
+
 }

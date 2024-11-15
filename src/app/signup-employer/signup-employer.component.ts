@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { LoginComponent } from '../login-page/login/login.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
+
 
 @Component({
   selector: 'app-signup-employer',
@@ -10,6 +11,7 @@ import { LoginPageComponent } from '../login-page/login-page.component';
   templateUrl: './signup-employer.component.html',
   styleUrl: './signup-employer.component.css'
 })
-export class SignupEmployerComponent {
+export class SignupEmployerComponent   {
 
+ 
 }

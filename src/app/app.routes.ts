@@ -9,6 +9,7 @@ import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
 import { JobPostedComponent } from './emp-dashboard/job-posted/job-posted.component';
 import { ApprovedJobsComponent } from './emp-dashboard/job-posted/approved-jobs/approved-jobs.component';
 import { RejectedJobsComponent } from './emp-dashboard/job-posted/rejected-jobs/rejected-jobs.component';
+import { SignupEmployerComponent } from './signup-employer/signup-employer.component';
 
 
 
@@ -24,6 +25,7 @@ export const routes: Routes = [
   { path: 'job-posted', component: JobPostedComponent },
   { path: 'approved-jobs', component: ApprovedJobsComponent },
   { path: 'rejected-jobs', component: RejectedJobsComponent },
+  { path: 'signup-page', component: SignupEmployerComponent }, 
 
   // { path: 'create-job-post', component: CreateJobPostComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' } // Wildcard for 404 redirects
