@@ -10,3 +10,12 @@ body.login-page app-header,
 body.login-page app-footer {
   display: none;
 }
+/* ----------Colors----------  var(--primary-color); color: var(--text-color); */
+:root {
+  --primary-color: #1E2D5B;
+  --secondary-color: #00FFFF;
+  --background-color: #EBF3FE;
+  --text-color: #2F3847;
+  /* --success-color: #28a745;
+  --error-color: #dc3545; */
+}

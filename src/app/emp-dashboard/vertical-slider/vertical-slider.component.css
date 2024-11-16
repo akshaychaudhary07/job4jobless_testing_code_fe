@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 .step-dot.active {
-  background-color: #1E2D5B;
+  background-color: var(--primary-color);
 }
 .progress-container::before {
   content: "";
@@ -64,7 +64,7 @@ h2 {
 }
 .active-heading {
   font-weight: bold;
-  color: #1E2D5B;
+  color: var(--primary-color);
 }
 .disabled-heading {
   opacity: 0.6;

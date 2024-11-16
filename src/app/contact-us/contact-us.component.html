@@ -19,13 +19,13 @@
         <div
           class="container form-box text-center"
           style="
-            background: #ebf3fe;
+            background: var(--background-color);
             padding: 3rem;
             padding-top: 4rem;
             margin-left: -1rem;
           "
         >
-          <h1 style="color: #1e2d5b">Get In Touch</h1>
+          <h1 style="color: var(--primary-color);">Get In Touch</h1>
           <p class="p-0 m-0">Got a question or feedback?</p>
           <p class="pb-2">Fill out the form and we’ll get back to you!</p>
           <form #myForm="ngForm">
@@ -102,7 +102,7 @@
             <button
               type="submit"
               class="btn fw-bold text-center text-white"
-              style="background: #1e2d5b; font-size: 25px; border-radius: 11px; padding: 12px 5rem;"
+              style="background: var(--primary-color); font-size: 25px; border-radius: 11px; padding: 12px 5rem;"
               [disabled]="myForm.invalid"
             >
               SEND
@@ -115,7 +115,7 @@
   </div>
 </section>
 
-<div class="border00" style="border-bottom: 1px solid #e2dada"></div>
+<div class="border00" style="border-bottom: 1px solid var(--background-color);"></div>
 <!-- <app-header [isEmployer]="true"></app-header> -->
 <!-- <app-contact-form></app-contact-form> -->
 
